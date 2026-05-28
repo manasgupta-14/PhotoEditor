@@ -3,112 +3,179 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box; 
-  font-family: "Poppins", "sens-serif";
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body{
-  background-color: #44c7c3;
+  min-height: 100vh;
+  background: linear-gradient(135deg,#44c7c3,#5f8df7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .all-container{
-  width:85vw;
-  min-height: 50vmin;
-  padding: 50px 30px;
-  background-color: burlywood;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 10px;
-  box-shadow: 0px 5px 10px 20px rgba(240, 80, 80, 0.651);
+  width: 100%;
+  max-width: 1200px;
+  min-height: 85vh;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 25px;
+  padding: 35px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
   display: grid;
-  grid-template-columns: 5fr 7fr;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 35px;
 }
 
+/* LEFT SIDE */
 .editor{
-  min-height: 35vmin;
+  background: rgba(255,255,255,0.1);
+  padding: 25px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  gap:20px;
+  gap: 25px;
+}
+
+.filter{
+  width: 100%;
 }
 
 .editor label{
-  font-size: 2.8vmin;
-  font-weight: 400;
-  color:white;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: inline-block;
 }
 
-.editor input[type="range"]
-{
-  display: block;
+.editor input[type="range"]{
   width: 100%;
-  position: relative;
-  margin-top: 5px;
+  height: 7px;
+  appearance: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
 }
 
+.editor input[type="range"]::-webkit-slider-thumb{
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #8b2cf5;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+/* FLIP BUTTONS */
 .flip-button{
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  gap: 15px;
 }
 
-.flip-button .flip-options{
-  margin-top: 10px;
+.flip-options{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+.flip-options label{
+  margin: 0;
+  font-size: 17px;
+}
+
+/* RIGHT SIDE */
 .result{
-  position: relative;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+}
+
+.image-container{
+  width: 100%;
+  height: 420px;
+  border: 2px dashed rgba(255,255,255,0.5);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
 }
 
 .result img{
-  display: block;
-  position: relative;
-  max-width: calc(100% -4vmin);
-  max-height: 45vmin;
-  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-input[type="file"]
-{
+input[type="file"]{
   display: none;
 }
 
 .result label{
-  position: relative;
-  display: block;
-  margin: 0 auto;
-  width: 220px;
-  background-color: blue;
-  color:white;
+  margin-top: 25px;
+  width: 240px;
   text-align: center;
-  padding: 16px 0;
-  border-radius: 5px;
-  font-size: 2.8vmin;
-  font-weight: 400;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg,#2f00ff,#6a00ff);
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-@media screen and (max-width:620px) {
+.result label:hover{
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 900px){
+
   .all-container{
-    width: 95vw;
     grid-template-columns: 1fr;
-    padding: 30px 20px;
-    gap:10px;
+    min-height: auto;
   }
-  .editor{
-    grid-row: 2;
+
+  .image-container{
+    height: 300px;
   }
-  .flip-button{
-    display: flex;
-    justify-content: space-between;
+}
+
+@media screen and (max-width: 500px){
+
+  .all-container{
+    padding: 20px;
   }
-  .flip-options .flip-options{
-    margin-top: 0;
+
+  .editor,
+  .result{
+    padding: 18px;
+  }
+
+  .editor label{
+    font-size: 16px;
+  }
+
+  .result label{
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .image-container{
+    height: 250px;
   }
 }
