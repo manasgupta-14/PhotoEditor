@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  font-family: "Poppins", "sens-serif";
+}
+
+body{
+  background-color: #44c7c3;
+}
+
+.all-container{
+  width:85vw;
+  min-height: 50vmin;
+  padding: 50px 30px;
+  background-color: burlywood;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px 20px rgba(240, 80, 80, 0.651);
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+}
+
+.editor{
+  min-height: 35vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap:20px;
+}
+
+.editor label{
+  font-size: 2.8vmin;
+  font-weight: 400;
+  color:white;
+}
+
+.editor input[type="range"]
+{
+  display: block;
+  width: 100%;
+  position: relative;
+  margin-top: 5px;
+}
+
+.flip-button{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.flip-button .flip-options{
+  margin-top: 10px;
+}
+
+.result{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.result img{
+  display: block;
+  position: relative;
+  max-width: calc(100% -4vmin);
+  max-height: 45vmin;
+  margin: auto;
+}
+
+input[type="file"]
+{
+  display: none;
+}
+
+.result label{
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 220px;
+  background-color: blue;
+  color:white;
+  text-align: center;
+  padding: 16px 0;
+  border-radius: 5px;
+  font-size: 2.8vmin;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+@media screen and (max-width:620px) {
+  .all-container{
+    width: 95vw;
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+    gap:10px;
+  }
+  .editor{
+    grid-row: 2;
+  }
+  .flip-button{
+    display: flex;
+    justify-content: space-between;
+  }
+  .flip-options .flip-options{
+    margin-top: 0;
+  }
+}
